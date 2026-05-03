@@ -1,0 +1,576 @@
+/* =====================================================
+   mobile.css — ERP Global Mobile Responsiveness
+   Pure frontend. Zero backend changes.
+   Breakpoints: ≤1024px tablet | ≤768px mobile | ≤480px small
+   ===================================================== */
+
+/* ─── RESET: No horizontal overflow anywhere ─── */
+html, body, #root {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ─── MOBILE TOPNAV: Remove any old page padding-left hacks ─── */
+@media (max-width: 1024px) {
+  /* Don't force column — sidebar is fixed/overlay on mobile */
+  .enterprise-shell {
+    display: flex;
+    flex-direction: row;
+  }
+  .shell-main {
+    width: 100% !important;
+    min-width: 0;
+  }
+  /* Remove any stale padding-left on page headers caused by the old floating hamburger */
+  .db-topbar,
+  .db-table-header,
+  .page-header {
+    padding-left: 16px !important;
+  }
+}
+
+/* ─── DASHBOARD ─── */
+@media (max-width: 1024px) {
+  .db-kpi-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  .db-charts-row {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Topbar: shrink buttons, let title take space */
+  .db-topbar {
+    height: 50px !important;
+    padding: 0 12px !important;
+    gap: 8px !important;
+  }
+  .db-topbar-left {
+    gap: 6px !important;
+    flex: 1 !important;
+    min-width: 0 !important;
+    overflow: hidden !important;
+  }
+  .db-topbar-title {
+    font-size: 13px !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+  .db-topbar-sep,
+  .db-topbar-sub {
+    display: none !important;
+  }
+  .db-topbar-right {
+    gap: 6px !important;
+    flex-shrink: 0 !important;
+  }
+  .db-topbar-right .db-btn {
+    padding: 6px 10px !important;
+    font-size: 11px !important;
+    white-space: nowrap !important;
+  }
+  /* Page header below topbar */
+  .db-content {
+    padding: 14px !important;
+  }
+  .db-page-header {
+    margin-bottom: 16px !important;
+  }
+  .db-page-title {
+    font-size: 17px !important;
+    letter-spacing: -0.3px !important;
+  }
+  /* KPI cards */
+  .db-kpi-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+  }
+  .db-kpi-card {
+    padding: 16px !important;
+    border-radius: 14px !important;
+    gap: 8px !important;
+  }
+  .db-kpi-value {
+    font-size: 20px !important;
+    letter-spacing: -0.5px !important;
+  }
+  .db-kpi-cur {
+    font-size: 15px !important;
+  }
+  /* Table section */
+  .db-table-wrap {
+    border-radius: 14px !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .db-table {
+    min-width: 560px !important;
+  }
+  .db-table-header {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+    padding: 12px 14px !important;
+  }
+  .db-table-actions {
+    width: 100% !important;
+    justify-content: flex-start !important;
+    gap: 8px !important;
+  }
+  .db-search-wrap {
+    flex: 1 !important;
+    max-width: none !important;
+  }
+  .db-search-input {
+    width: 100% !important;
+  }
+  .db-tfoot {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 10px 14px !important;
+    font-size: 11px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .db-kpi-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .db-kpi-card {
+    padding: 14px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* ─── REPORTS DASHBOARD ─── */
+@media (max-width: 768px) {
+  .reports-dashboard-page {
+    padding: 14px !important;
+  }
+  /* Header stacking */
+  .reports-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  .reports-header h1 {
+    font-size: 20px !important;
+    letter-spacing: -0.5px !important;
+  }
+  .reports-header p {
+    font-size: 12.5px !important;
+    margin: 0 !important;
+  }
+  .date-badge {
+    font-size: 11px !important;
+    padding: 6px 12px !important;
+  }
+  /* Stats row: 2 columns */
+  .reports-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 20px !important;
+  }
+  .stat-mini-card {
+    padding: 14px !important;
+    border-radius: 12px !important;
+  }
+  .stat-label {
+    font-size: 10px !important;
+  }
+  .stat-value {
+    font-size: 16px !important;
+  }
+  /* Report category cards: 1 column */
+  .reports-categories-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  .category-card {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+  .category-header {
+    gap: 10px !important;
+  }
+  .category-icon {
+    width: 36px !important;
+    height: 36px !important;
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+  }
+  .category-info h3 {
+    font-size: 14px !important;
+    font-weight: 700 !important;
+  }
+  .category-info span {
+    font-size: 11px !important;
+  }
+  .report-item,
+  .report-link {
+    padding: 10px 12px !important;
+    font-size: 12.5px !important;
+  }
+  /* Recent reports section */
+  .recent-reports-section {
+    margin-top: 20px !important;
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+  .recent-grid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .recent-item {
+    padding: 12px !important;
+    border-radius: 10px !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .reports-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── BASE REPORT PAGE (individual reports) ─── */
+@media (max-width: 768px) {
+  /* Container */
+  .db-content[style] {
+    padding: 14px !important;
+    max-width: 100% !important;
+  }
+  /* Hero header: stack vertically */
+  div[style*="borderLeft"][style*="boxShadow"][style*="0 4px 24px"] {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 16px !important;
+    border-radius: 14px !important;
+    gap: 14px !important;
+  }
+  /* Title */
+  div[style*="borderLeft"][style*="boxShadow"] h1 {
+    font-size: 20px !important;
+  }
+  /* Action buttons */
+  .header-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .header-actions button {
+    flex: 1 !important;
+    min-width: 80px !important;
+    justify-content: center !important;
+    padding: 8px 10px !important;
+    font-size: 12px !important;
+  }
+  /* Filter bar wraps */
+  .report-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 12px !important;
+  }
+  .report-table {
+    min-width: 500px !important;
+    font-size: 12px !important;
+  }
+  .report-table th,
+  .report-table td {
+    padding: 8px 10px !important;
+    white-space: nowrap !important;
+  }
+  /* Back link */
+  header a {
+    font-size: 12.5px !important;
+  }
+}
+
+/* ─── PAGE SHARED — ALL LISTING PAGES ─── */
+@media (max-width: 768px) {
+  .page-container {
+    padding: 14px 12px !important;
+    gap: 12px !important;
+  }
+  .page-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    margin-bottom: 12px !important;
+    padding: 0 !important;
+  }
+  .page-header h1 {
+    font-size: 18px !important;
+    letter-spacing: -0.3px !important;
+  }
+  .page-header p {
+    font-size: 12.5px !important;
+    margin: 0 !important;
+  }
+  .page-header-actions {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  /* Stats grid */
+  .premium-stats-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-bottom: 16px !important;
+  }
+  .stat-card {
+    padding: 16px !important;
+    min-height: 100px !important;
+    border-radius: 16px !important;
+  }
+  .stat-card .value {
+    font-size: 1.4rem !important;
+  }
+  /* Tables */
+  .page-table-wrapper {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    border-radius: 12px !important;
+  }
+  .page-table {
+    min-width: 580px !important;
+  }
+  .page-table th, .page-table td {
+    padding: 9px 11px !important;
+    font-size: 12px !important;
+  }
+  /* Search */
+  .page-search-bar {
+    width: 100% !important;
+    margin-bottom: 12px !important;
+  }
+  /* Transaction cards */
+  .tx-card {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+    padding: 14px 16px !important;
+    border-radius: 16px !important;
+  }
+  .tx-card-left { width: 100% !important; }
+}
+
+@media (max-width: 480px) {
+  .premium-stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .stat-card {
+    padding: 14px !important;
+    border-radius: 14px !important;
+  }
+}
+
+/* ─── ADMIN SETUP ─── */
+@media (max-width: 768px) {
+  .admin-setup-v2 {
+    padding: 12px !important;
+  }
+  .setup-grid-v2 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .setup-tile {
+    padding: 18px !important;
+    border-radius: 18px !important;
+    gap: 12px !important;
+  }
+  .detail-view-v2 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .detail-sidebar {
+    position: static !important;
+  }
+  .nav-stack {
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 6px !important;
+    padding-bottom: 4px !important;
+    flex-wrap: nowrap !important;
+  }
+  .nav-stack-btn {
+    flex-shrink: 0 !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+    border-radius: 10px !important;
+  }
+  .detail-canvas {
+    padding: 18px !important;
+    border-radius: 18px !important;
+  }
+  .canvas-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 12px !important;
+    margin-bottom: 20px !important;
+  }
+  .canvas-header .btn-v2 {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+  .modern-kv-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+  .kv-item.full { grid-column: span 1 !important; }
+  .title-v2 {
+    font-size: 2rem !important;
+    letter-spacing: -1px !important;
+  }
+  .v2-settings-modal {
+    border-radius: 20px !important;
+    max-height: 90vh !important;
+    overflow-y: auto !important;
+  }
+  .modal-top { padding: 18px !important; }
+  .v2-form { padding: 18px !important; }
+  .form-row { grid-template-columns: 1fr !important; }
+}
+
+/* ─── PAYMENT METHODS ADMIN ─── */
+@media (max-width: 768px) {
+  /* Page padding */
+  div[style*="maxWidth: \"1200px\""],
+  div[style*="maxWidth: '1200px'"] {
+    padding: 14px !important;
+  }
+  /* QR grid: 2 cols */
+  div[style*="minmax(160px"] {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 12px !important;
+  }
+  /* Section cards full width on mobile */
+  div[style*="minmax(min(100%, 400px)"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* ─── GLOBAL TABLES ─── */
+@media (max-width: 768px) {
+  .enterprise-table-wrapper,
+  .page-table-wrapper,
+  .table-container,
+  .report-table-wrapper,
+  .db-table-wrap {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+  .enterprise-table,
+  .page-table,
+  .data-table,
+  .report-table,
+  .db-table {
+    min-width: 520px !important;
+  }
+  .enterprise-table th,
+  .enterprise-table td {
+    padding: 9px 11px !important;
+    font-size: 12px !important;
+    white-space: nowrap !important;
+  }
+}
+
+/* ─── GLOBAL MODALS ─── */
+@media (max-width: 480px) {
+  .modal-overlay,
+  .v2-modal-overlay,
+  .page-modal-overlay {
+    padding: 8px !important;
+    align-items: flex-end !important;
+  }
+  .page-modal,
+  .modal-overlay > div,
+  .v2-modal-overlay > div {
+    border-radius: 20px 20px 0 0 !important;
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    width: 100% !important;
+    padding: 20px 16px !important;
+  }
+  .page-modal-actions {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+}
+
+/* ─── SETTINGS ─── */
+@media (max-width: 768px) {
+  .settings-container {
+    flex-direction: column !important;
+    padding: 14px !important;
+    gap: 14px !important;
+  }
+  .settings-sidebar {
+    width: 100% !important;
+  }
+}
+
+/* ─── CREATE / EDIT INVOICE ─── */
+@media (max-width: 1024px) {
+  .invoice-layout {
+    flex-direction: column !important;
+    height: auto !important;
+    overflow: visible !important;
+  }
+  .invoice-form-side {
+    width: 100% !important;
+    border-right: none !important;
+    border-bottom: 1px solid var(--border) !important;
+  }
+  .invoice-preview-side {
+    display: none !important;
+  }
+}
+
+/* ─── TYPOGRAPHY SCALING ─── */
+@media (max-width: 480px) {
+  h1 { font-size: 19px !important; }
+  h2 { font-size: 16px !important; }
+  h3 { font-size: 14px !important; }
+  /* Prevent iOS double-tap zoom on inputs */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* ─── REDUCED MOTION ─── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .mobile-topnav {
+    transition: none !important;
+  }
+}
+
+/* ─── PRINT ─── */
+@media print {
+  .sidebar-container,
+  .mobile-topnav,
+  .db-topbar,
+  .no-print {
+    display: none !important;
+  }
+  .shell-main {
+    margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+}
